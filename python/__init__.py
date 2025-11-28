@@ -1,0 +1,2 @@
+"""Electronics Shop Python package."""
+

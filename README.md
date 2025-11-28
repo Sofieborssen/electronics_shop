@@ -6,19 +6,21 @@ Databassystem för en elektronikbutik. PostgreSQL-databas med Python-applikation
 
 ```
 electronics_shop/
-├── schema.sql              # Databasschema (för psql)
-├── schema_pgadmin.sql      # Databasschema (för pgAdmin 4)
-├── testdata.sql            # Testdata
-├── queries.sql             # SQL-queries (10 st - G-nivå)
-├── queries_advanced.sql    # Avancerade queries (6 st - VG-nivå)
-├── optimization.sql        # Index och optimering (VG-nivå)
-├── database.py            # Databasanslutning (SQLAlchemy ORM)
-├── models.py              # ORM-modeller
-├── queries.py             # Query-funktioner
-├── main.py                # Huvudprogram
-├── requirements.txt       # Python-paket
-├── README.md              # Denna fil
-└── REPORT.md              # Dokumentation (VG-nivå)
+├── sql/
+│   ├── schema.sql              # Databasschema (för psql)
+│   ├── schema_pgadmin.sql      # Databasschema (för pgAdmin 4)
+│   ├── testdata.sql            # Testdata
+│   ├── queries.sql             # SQL-queries (10 st - G-nivå)
+│   ├── queries_advanced.sql    # Avancerade queries (6 st - VG-nivå)
+│   └── optimization.sql        # Index och optimering (VG-nivå)
+├── python/
+│   ├── database.py            # Databasanslutning (SQLAlchemy ORM)
+│   ├── models.py              # ORM-modeller
+│   ├── queries.py             # Query-funktioner
+│   ├── main.py                # Huvudprogram
+│   └── requirements.txt       # Python-paket
+├── README.md                  # Denna fil
+└── REPORT.md                  # Dokumentation (VG-nivå)
 ```
 
 ## Krav
@@ -38,23 +40,23 @@ I pgAdmin 4:
 ### 2. Skapa tabeller
 
 1. Högerklicka på `electronics_db` → "Query Tool"
-2. Öppna filen `schema_pgadmin.sql`
+2. Öppna filen `sql/schema_pgadmin.sql`
 3. Kopiera innehållet och kör (F5 eller Execute)
 
 **Alternativt:** Om du använder psql:
 ```bash
-psql -U <användarnamn> -f schema.sql
+psql -U <användarnamn> -f sql/schema.sql
 ```
 
 ### 3. Ladda testdata
 
 1. I Query Tool (fortfarande ansluten till `electronics_db`)
-2. Öppna filen `testdata.sql`
+2. Öppna filen `sql/testdata.sql`
 3. Kopiera innehållet och kör (F5)
 
 **Alternativt:** Om du använder psql:
 ```bash
-psql -U <användarnamn> -d electronics_db -f testdata.sql
+psql -U <användarnamn> -d electronics_db -f sql/testdata.sql
 ```
 
 Innehåll: 3 tillverkare, 12 produkter, 5 kunder, 10 beställningar, 10 order_items, 10 recensioner.
@@ -62,7 +64,7 @@ Innehåll: 3 tillverkare, 12 produkter, 5 kunder, 10 beställningar, 10 order_it
 ### 4. Installera Python-paket
 
 ```bash
-pip install -r requirements.txt
+pip install -r python/requirements.txt
 ```
 
 ### 5. Sätt miljövariabler
@@ -78,13 +80,14 @@ export ELECTRONICS_DB_PASSWORD=<lösenord>
 ## Körning
 
 ```bash
+cd python
 python main.py
 ```
 
 ### Testa SQL-queries i pgAdmin 4
 
 1. Öppna Query Tool för `electronics_db`
-2. Öppna filen `queries.sql` eller `queries_advanced.sql`
+2. Öppna filen `sql/queries.sql` eller `sql/queries_advanced.sql`
 3. Kopiera innehållet och kör (F5)
 4. Se resultat i "Data Output"-fliken
 
@@ -111,5 +114,5 @@ Foreign keys med ON DELETE CASCADE, CHECK constraints, UNIQUE constraints, index
 
 ## Optimering
 
-Se `optimization.sql` och `REPORT.md` för index och prestandaanalys.
+Se `sql/optimization.sql` och `REPORT.md` för index och prestandaanalys.
 

@@ -42,7 +42,7 @@ Databasen modellerar en elektronikbutik med tillverkare, produkter, kunder, best
 
 **Resultat:** Kostnad minskade med >50% för båda queries.
 
-Ytterligare index i schema.sql: foreign keys, unique constraints, sökindex.
+Ytterligare index i sql/schema.sql: foreign keys, unique constraints, sökindex.
 
 ## SQL Queries
 
