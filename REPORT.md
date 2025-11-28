@@ -64,10 +64,3 @@ SQLAlchemy ORM med:
 
 9 funktioner implementerade. Parameteriserade queries för säkerhet.
 
-## Sammanfattning
-
-✅ 6 tabeller med constraints och foreign keys  
-✅ 10 grundläggande queries + 6 avancerade queries  
-✅ 2 index för optimering  
-✅ Python-applikation med SQLAlchemy ORM
-
